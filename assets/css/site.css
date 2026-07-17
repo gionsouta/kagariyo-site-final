@@ -1,0 +1,562 @@
+:root {
+  --paper: #f7f5f0;
+  --white: #ffffff;
+  --black: #000000;
+  --ink: #171513;
+  --muted: #6f6860;
+  --line: #d8d2c9;
+  --soft: #ebe6dd;
+  --accent: #8d1f1f;
+  --max: 1120px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+}
+
+body {
+  background: var(--paper);
+  margin: 0;
+}
+
+.theme-dark {
+  background: var(--black);
+  color: var(--white);
+}
+
+.theme-white {
+  background: var(--white);
+  color: var(--ink);
+}
+
+.theme-soft {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Times New Roman", Times, serif;
+}
+
+a {
+  color: inherit;
+  text-decoration-color: rgba(23, 21, 19, 0.35);
+  text-underline-offset: 0.18em;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.site-header {
+  align-items: center;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  min-height: 72px;
+  padding: 16px clamp(20px, 4vw, 56px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.brand {
+  font-size: clamp(1.4rem, 2.4vw, 1.95rem);
+  letter-spacing: 0;
+  text-decoration: none;
+}
+
+.main-nav {
+  display: flex;
+  gap: clamp(16px, 4vw, 36px);
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.main-nav a {
+  text-decoration: none;
+}
+
+.main-nav a[aria-current="page"] {
+  color: var(--accent);
+}
+
+.hero {
+  min-height: calc(100svh - 72px);
+  position: relative;
+}
+
+.hero-image {
+  border: 0;
+  min-height: calc(100svh - 72px);
+}
+
+.hero-copy {
+  color: #fff;
+  left: 50%;
+  max-width: 760px;
+  padding: 24px;
+  position: absolute;
+  text-align: center;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.65);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 760px);
+}
+
+.hero-copy p,
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.hero-copy h1 {
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  font-weight: 400;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.section,
+.page-shell {
+  margin-inline: auto;
+  max-width: var(--max);
+  padding: clamp(56px, 9vw, 112px) clamp(20px, 4vw, 56px);
+}
+
+.narrow {
+  max-width: 980px;
+}
+
+.centered {
+  text-align: center;
+}
+
+h1,
+h2,
+h3 {
+  font-variant-numeric: lining-nums;
+  font-weight: 400;
+  line-height: 1.18;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+  margin: 0;
+}
+
+h2 {
+  font-size: clamp(1.35rem, 2.1vw, 1.7rem);
+  margin: 0 0 18px;
+}
+
+h3 {
+  font-size: clamp(1.12rem, 1.6vw, 1.28rem);
+  margin: 28px 0 8px;
+}
+
+.image-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 36px 0 48px;
+}
+
+.image-frame {
+  align-items: center;
+  aspect-ratio: 4 / 3;
+  background:
+    linear-gradient(135deg, rgba(23, 21, 19, 0.05), rgba(141, 31, 31, 0.09)),
+    var(--soft);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+}
+
+.image-frame img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+  z-index: 1;
+}
+
+.image-frame span {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  padding: 18px;
+  position: absolute;
+  text-transform: uppercase;
+}
+
+.image-frame.image-missing img {
+  display: none;
+}
+
+.protected-image {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.split {
+  align-items: center;
+  display: grid;
+  gap: clamp(32px, 6vw, 72px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.split.reverse .image-frame {
+  order: 2;
+}
+
+.portrait-image {
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.section-copy {
+  max-width: 520px;
+}
+
+.theme-dark .section-copy,
+.theme-dark .page-heading,
+.theme-dark .gallery-detail,
+.theme-dark .gallery-card {
+  color: var(--white);
+}
+
+.theme-dark .page-heading {
+  border-bottom-color: #1d1d1d;
+  border-bottom: 0;
+  text-align: center;
+}
+
+.theme-dark .image-frame {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.09)),
+    #101010;
+  border-color: #242424;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.text-link,
+.button-link {
+  display: inline-flex;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  margin-top: 12px;
+  text-transform: uppercase;
+}
+
+.button-link {
+  border: 1px solid var(--ink);
+  padding: 12px 18px;
+  text-decoration: none;
+}
+
+.theme-dark .text-link,
+.theme-dark .button-link {
+  color: var(--white);
+  text-decoration-color: rgba(255, 255, 255, 0.55);
+}
+
+.theme-dark .button-link {
+  border-color: var(--white);
+}
+
+.page-heading {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 44px;
+  padding-bottom: 28px;
+}
+
+.product-list {
+  display: grid;
+  gap: 28px;
+}
+
+.product-card {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+  padding-bottom: 32px;
+}
+
+.theme-white .page-shell {
+  background: var(--white);
+}
+
+.product-card h2 {
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  margin-bottom: 10px;
+}
+
+.product-card h2 a {
+  text-decoration: none;
+}
+
+.price {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+}
+
+.gallery-grid {
+  display: grid;
+  gap: clamp(72px, 10vw, 132px) clamp(120px, 18vw, 240px);
+  grid-template-columns: repeat(2, minmax(120px, 160px));
+  justify-content: center;
+  padding-block: clamp(40px, 8vw, 96px);
+}
+
+.gallery-card {
+  display: grid;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.gallery-card > span:last-child {
+  color: var(--white);
+  font-size: 1.05rem;
+  text-align: center;
+}
+
+.gallery-card .image-frame {
+  aspect-ratio: 1;
+  border-radius: 8px;
+}
+
+.content-page {
+  font-size: clamp(1.03rem, 1.4vw, 1.18rem);
+  margin-inline: auto;
+  max-width: 760px;
+}
+
+.content-page h1 {
+  font-size: clamp(1.75rem, 2.8vw, 2.25rem);
+}
+
+.content-page h2 {
+  font-size: clamp(1.22rem, 1.8vw, 1.48rem);
+  margin-top: 48px;
+}
+
+.content-page h3 {
+  font-size: clamp(1.08rem, 1.45vw, 1.18rem);
+}
+
+.content-page p,
+.content-page li {
+  color: #2b2723;
+}
+
+.theme-dark .content-page p,
+.theme-dark .content-page li {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.content-page ul {
+  padding-left: 1.2rem;
+}
+
+.policy-list {
+  display: grid;
+  gap: 16px;
+}
+
+.policy-row {
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 180px minmax(0, 1fr);
+  padding: 14px 0;
+}
+
+.policy-row dt {
+  color: var(--muted);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.policy-row dd {
+  margin: 0;
+}
+
+.contact-form {
+  display: grid;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.contact-form label {
+  display: grid;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.86rem;
+  gap: 8px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font: inherit;
+  padding: 12px;
+}
+
+.contact-form textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.contact-form-error {
+  color: #8f251c;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  min-height: 1.6em;
+}
+
+.contact-form [aria-invalid="true"] {
+  border-color: #8f251c;
+}
+
+.contact-form label.contact-form-honeypot {
+  display: none;
+}
+
+.notice {
+  background: #fff;
+  border-left: 3px solid var(--accent);
+  padding: 16px 18px;
+}
+
+.product-page {
+  display: grid;
+  gap: clamp(28px, 5vw, 56px);
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+}
+
+.product-media {
+  display: grid;
+  gap: 12px;
+}
+
+.product-main-image {
+  aspect-ratio: 1 / 1;
+}
+
+.thumb-row {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.thumb-row button {
+  border: 1px solid var(--line);
+  cursor: pointer;
+  padding: 0;
+}
+
+.accordion {
+  border-top: 1px solid var(--line);
+  margin-top: 32px;
+}
+
+.accordion details {
+  border-bottom: 1px solid var(--line);
+  padding: 14px 0;
+}
+
+.accordion summary {
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0.06em;
+}
+
+.back-link::before {
+  content: "< ";
+}
+
+.gallery-detail {
+  display: grid;
+  gap: 32px;
+  margin-inline: auto;
+  max-width: 880px;
+}
+
+.gallery-detail .image-frame {
+  aspect-ratio: 3 / 2;
+}
+
+.site-footer {
+  background: var(--white);
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  padding: 36px clamp(20px, 4vw, 56px);
+}
+
+.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-bottom: 24px;
+}
+
+.site-footer a,
+.site-footer p {
+  color: var(--muted);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.78rem;
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    min-height: 64px;
+  }
+
+  .main-nav {
+    gap: 16px;
+  }
+
+  .hero,
+  .hero-image {
+    min-height: 72svh;
+  }
+
+  .image-grid,
+  .split,
+  .product-card,
+  .product-page,
+  .policy-row {
+    grid-template-columns: 1fr;
+  }
+
+  .split.reverse .image-frame {
+    order: 0;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+}
