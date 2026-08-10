@@ -291,6 +291,72 @@ main .image-frame.portrait-image {
   text-transform: uppercase;
 }
 
+.scene-grid {
+  display: grid;
+  gap: clamp(28px, 5vw, 56px);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 280px));
+  justify-content: center;
+  margin: clamp(28px, 5vw, 56px) auto 0;
+  max-width: 920px;
+}
+
+.scene-card {
+  margin: 0;
+}
+
+.scene-image-button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: zoom-in;
+  display: block;
+  padding: 0;
+  width: 100%;
+}
+
+.scene-card .scene-image {
+  width: 100%;
+}
+
+.scene-card .scene-image img {
+  height: auto;
+}
+
+.scene-lightbox {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.88);
+  cursor: zoom-out;
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 24px;
+  position: fixed;
+  z-index: 1000;
+}
+
+.scene-lightbox-image {
+  cursor: default;
+  max-height: calc(100vh - 64px);
+  max-width: min(100%, 800px);
+  object-fit: contain;
+}
+
+.scene-lightbox-close {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.18);
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 2rem;
+  height: 44px;
+  justify-content: center;
+  position: fixed;
+  right: 18px;
+  top: 18px;
+  width: 44px;
+}
+
 @media (max-width: 760px) {
   .gallery-grid {
     grid-template-columns: repeat(3, 72px);
@@ -299,6 +365,10 @@ main .image-frame.portrait-image {
 
   .gallery-card .image-frame {
     width: 72px;
+  }
+
+  .scene-grid {
+    grid-template-columns: minmax(0, 82vw);
   }
 }
 
