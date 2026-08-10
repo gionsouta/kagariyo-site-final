@@ -315,6 +315,9 @@ main .image-frame.portrait-image {
 }
 
 .scene-card .scene-image {
+  aspect-ratio: auto;
+  background: transparent;
+  border: 0;
   width: 100%;
 }
 
