@@ -59,6 +59,21 @@ main .image-frame.portrait-image {
   grid-template-columns: repeat(5, 1fr);
 }
 
+.thumb-row button {
+  background: transparent;
+  border: 0;
+}
+
+.thumb-row button .image-frame {
+  background: transparent;
+  border: 0;
+}
+
+.thumb-row button.is-active .image-frame {
+  outline: 1px solid rgba(23, 21, 19, 0.45);
+  outline-offset: 3px;
+}
+
 .product-main-image {
   position: relative;
 }
@@ -111,10 +126,6 @@ main .image-frame.portrait-image {
 
 .product-image-nav-next {
   right: 12px;
-}
-
-.thumb-row button.is-active {
-  border-color: #171513;
 }
 
 .thumb-row button.is-thumb-hidden {
@@ -292,12 +303,28 @@ main .image-frame.portrait-image {
 }
 
 .scene-grid {
+  align-items: center;
   display: grid;
   gap: clamp(28px, 5vw, 56px);
-  grid-template-columns: repeat(auto-fit, minmax(180px, 280px));
+  grid-template-columns: repeat(2, minmax(180px, 280px));
   justify-content: center;
   margin: clamp(28px, 5vw, 56px) auto 0;
   max-width: 920px;
+}
+
+.scene-card-ajisai {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.scene-card-fuji {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.scene-card-gate {
+  grid-column: 1;
+  grid-row: 2;
 }
 
 .scene-card {
@@ -343,6 +370,7 @@ main .image-frame.portrait-image {
 }
 
 .scene-lightbox-image {
+  border-radius: 14px;
   cursor: default;
   max-height: calc(100vh - 64px);
   max-width: min(100%, 800px);
