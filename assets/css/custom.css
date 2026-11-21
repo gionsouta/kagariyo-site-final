@@ -611,6 +611,30 @@ body.theme-dark main > .split .section-copy {
   text-align: center;
 }
 
+.footer-social {
+  align-items: center;
+  display: flex;
+  margin: 0 0 18px;
+}
+
+.footer-social a {
+  display: inline-flex;
+  line-height: 0;
+}
+
+.footer-social img {
+  display: block;
+  height: 24px;
+  opacity: 0.72;
+  transition: opacity 160ms ease;
+  width: 24px;
+}
+
+.footer-social a:hover img,
+.footer-social a:focus-visible img {
+  opacity: 1;
+}
+
 @media (max-width: 760px) {
   .product-page {
     grid-template-columns: 1fr;
